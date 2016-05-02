@@ -5,7 +5,7 @@
 var mapId = 'lduncanintrah.019h3911';
 
 // And this is my access token, use yours.
-var accessToken = 'pk.eyJ1Ijoid2lsbC1icmVpdGtyZXV0eiIsImEiOiItMTJGWEF3In0.HEvuRMMVxBVR5-oDYvudxw';
+var accessToken = 'pk.eyJ1IjoibGR1bmNhbmludHJhaCIsImEiOiJjaW5wem1jYmYxMDM3dHRtM2h4dWtxejk1In0.yDfj0I5gxAHRQAue9Pl12Q';
 
 // Create the map object with your mapId and token,
 // referencing the DOM element where you want the map to go.
