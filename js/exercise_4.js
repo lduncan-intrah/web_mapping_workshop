@@ -88,6 +88,7 @@ map.on('locationfound', function(e) {
 map.locate({setView: true});
 
 var routeLine = L.mapbox.featureLayer().addTo(map);
+var routeHighlight = L.mapbox.featureLayer().addTo(map);
 
 function getDirections( from, to ) {
   var jsonPayload = JSON.stringify({
@@ -130,6 +131,32 @@ function getDirections( from, to ) {
       });
       
     });
+    
+    $('.instruction').on('mouseover', function(){
+      var begin = Number($(this).attr('data-begin'));
+      var end = Number($(this).attr('data-end'));
+      
+      routeHighlight.setGeoJSON({
+        type:'Feature',
+        geometry:{
+          type: begin === end ? 'Point' : 'LineString',
+          coordinates: begin === end ? routeShape.slice(begin)[0] : routeShape.slice(begin,(end + 1))
+        },
+        properties:{
+          "stroke": '#1ea6f2',
+          "stroke-opacity": 0.9,
+          "stroke-width": 10,
+          "marker-color": '#1ea6f2',
+          "marker-size": 'small',
+          "marker-symbol": 'star'
+        }
+      });
+    });
+    
+    $('.instruction').on('mouseout', function(){
+      routeHighlight.clearLayers()
+    });
+    
   });
 }
 
