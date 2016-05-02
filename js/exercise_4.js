@@ -95,7 +95,7 @@ function getDirections( from, to ) {
         { lat: from[1], lon: from[0] },
         { lat: to[1], lon: to[0] }
       ],
-      costing: 'pedestrian',
+      costing: 'auto',
       units: 'miles'
   });
   $.ajax({
