@@ -115,5 +115,10 @@ function getDirections( from, to ) {
         "stroke-width": 8
       }
     });
+    $('#directions').fadeIn(400, function() {
+      $('#summary').empty();
+      $('#distance').text( (Math.round( data.trip.summary.length*100 )/100) + " " + data.trip.units );
+      $('#time').text( Math.round(data.trip.summary.time / 60) + " minutes" );
+    });
   });
 }
